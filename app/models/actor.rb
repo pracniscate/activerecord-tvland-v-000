@@ -5,6 +5,9 @@ class Actor < ActiveRecord::Base
   def full_name
     name = "#{self.first_name} #{self.last_name}"
   end
+
+  def list_roles
+    # lists all of the characters that actor has
+    self.characters.map {|c| "#{c.name} - #{c.show.name}"}
+  end
 end
-
-
